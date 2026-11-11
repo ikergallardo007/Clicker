@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2058450452832828972}
-  - component: {fileID: 4063764471889246418}
+  - component: {fileID: 8083202016227176887}
   - component: {fileID: 2278757983274575428}
   - component: {fileID: 8346510172244212371}
   - component: {fileID: 9047595181697745307}
@@ -35,7 +35,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4063764471889246418
+--- !u!114 &8083202016227176887
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6017095134259428363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 094820952dffcb34aa766032216220a7, type: 3}
+  m_Script: {fileID: 11500000, guid: a4a63742ebf90f84fa6acb536c22051c, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  <RepeatRate>k__BackingField: 1
+  m_EditorClassIdentifier: Assembly-CSharp::Agent1
+  <RepeatRate>k__BackingField: 2
   _agentAudio: {fileID: 9047595181697745307}
 --- !u!212 &2278757983274575428
 SpriteRenderer:

@@ -1,11 +1,10 @@
 using UnityEngine;
-using System;
-using DG.Tweening;
 
 public class AgentBase : MonoBehaviour
 {
 	#region Properties
 	[field: SerializeField] public float RepeatRate { get; set; }
+	public SlotButtonUI destiny {  get; set; }
 	#endregion
 
 	#region Fields

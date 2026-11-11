@@ -4,7 +4,6 @@ using UnityEngine;
 public class Agent1 : AgentBase
 {
     #region Properties
-    public SlotButtonUI destiny { get; set; }
     #endregion
 
     #region Fields

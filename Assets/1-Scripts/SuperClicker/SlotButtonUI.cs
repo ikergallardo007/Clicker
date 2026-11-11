@@ -68,7 +68,7 @@ public class SlotButtonUI : MonoBehaviour
 	private void Awake()
 	{
 		_stock = _initialStock;
-		_game = FindObjectOfType<GameController>();
+		_game = FindAnyObjectByType<GameController>();
 		Reward.ObjectReward = this;
 	}
 
