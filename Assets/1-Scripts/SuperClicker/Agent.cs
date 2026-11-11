@@ -10,6 +10,7 @@ public class Agent : MonoBehaviour
 	#endregion
 
 	#region Fields
+	[SerializeField] private AudioSource _agentAudio;
 	#endregion
 
 	#region Unity Callbacks
@@ -30,6 +31,7 @@ public class Agent : MonoBehaviour
 	private void Click()
 	{
 		destiny.Click(1, true);
+		_agentAudio.Play();
 		//Only Angel
 		if (destiny.ClicksLeft < 0)
 			Destroy(gameObject);

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI _clicksText;
 
 	[SerializeField] private ParticleSystem _particlesRain;
+	[SerializeField] private AudioSource _rewardAudio;
 	#endregion
 
 	#region Unity Callbacks
@@ -51,6 +52,7 @@ public class GameController : MonoBehaviour
 	private void GetReward(Reward reward)
 	{
 		ShowReward(reward);
+		_rewardAudio.Play();
 
 		//Apply rewards
 		if (reward.RewardType == RewardType.Plus)

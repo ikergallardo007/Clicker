@@ -23,6 +23,8 @@ public class SlotButtonUI : MonoBehaviour
 				_stock--;
 				if (_stock > 0)
 				{
+					float nextInitialClick = _initialClics * 1.15f;
+					_initialClics = (int)nextInitialClick;
 					_clicksLeft = _initialClics;
 				}
 				else
@@ -52,9 +54,12 @@ public class SlotButtonUI : MonoBehaviour
 	[SerializeField] private int _materialParticleIndex;
 	[Header("Preafb points")]
 	[SerializeField] private PointsElementUI _pointsPrefab;
+	[Header("Audio")]
+	[SerializeField] private AudioSource _clickAudio;
 	
 	private GameController _game;
-	private int _stock = 5;
+	private int _stock;
+	private int _initialStock = 5;
 	private int _clicksLeft = 0;
 
 	#endregion
@@ -62,6 +67,7 @@ public class SlotButtonUI : MonoBehaviour
 	#region Unity Callbacks
 	private void Awake()
 	{
+		_stock = _initialStock;
 		_game = FindObjectOfType<GameController>();
 		Reward.ObjectReward = this;
 	}
@@ -99,6 +105,7 @@ public class SlotButtonUI : MonoBehaviour
 	public void Click(int clickCount, bool agent = false)
 	{
 		_particles.startSpeed = Mathf.Clamp(clickCount / 2, 1, 30);
+		_clickAudio.Play();
 		_particles.Emit(Mathf.Clamp(clickCount,1, 15));
 		ClicksLeft -= clickCount;
 		RefreshClicksText();
