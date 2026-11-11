@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using DG.Tweening;
 
-public class Agent : MonoBehaviour
+public class AgentBaseCopia : MonoBehaviour
 {
 	#region Properties
 	public SlotButtonUI destiny { get; set; }

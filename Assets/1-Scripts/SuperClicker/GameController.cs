@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 	#endregion
 
 	#region Fields
-	[SerializeField] private Agent[] _agents;
+	[SerializeField] private AgentBase[] _agents;
 	[SerializeField] private TextMeshProUGUI _rewardText;
 	[SerializeField] private TextMeshProUGUI _clicksText;
 
@@ -71,7 +71,7 @@ public class GameController : MonoBehaviour
 
 		if (reward.RewardType == RewardType.Agent)
 		{
-			Agent newAgent = Instantiate(_agents[(int)reward.Value],transform.position, Quaternion.identity);
+			AgentBase newAgent = Instantiate(_agents[(int)reward.Value],transform.position, Quaternion.identity);
 			newAgent.destiny = reward.ObjectReward;
 
 			return;
