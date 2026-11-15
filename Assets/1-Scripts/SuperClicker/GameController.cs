@@ -20,9 +20,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private ParticleSystem _particlesRain;
     [SerializeField] private AudioSource _rewardAudio;
     private string _agentType;
+    private AchievementManager _achievementManager;
     #endregion
 
     #region Unity Callbacks
+    private void Awake()
+    {
+        _achievementManager = FindAnyObjectByType<AchievementManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -74,6 +79,10 @@ public class GameController : MonoBehaviour
 
         if (reward.RewardType == RewardType.Agent)
         {
+            _achievementManager.AddProgress(
+                AchievementType.ObtainedRewards,
+                1
+                );
             AgentBase newAgent = Instantiate(_agents[(int)reward.Value], transform.position, Quaternion.identity);
             newAgent.destiny = reward.ObjectReward;
             // Angels

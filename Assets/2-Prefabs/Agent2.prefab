@@ -47,8 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36989556ba4350f418de8b86251ab6bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Agent2
-  <RepeatRate>k__BackingField: 5
+  <RepeatRate>k__BackingField: 30
   _agentAudio: {fileID: 2112483131917059840}
+  _archdemon: 0
 --- !u!212 &9035322749411284570
 SpriteRenderer:
   serializedVersion: 3

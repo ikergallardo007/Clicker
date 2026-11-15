@@ -9,13 +9,17 @@ public class Agent2 : AgentBase
     #endregion
 
     #region Fields
+    [SerializeField] bool _archdemon = false;
+    private GameController _game;
     private PoolScript _pool;
     private SlotButtonUI[] _buttons;
+    private int _clicks = 1;
     #endregion
 
     #region Unity Callbacks
     private void Awake()
     {
+        _game = FindAnyObjectByType<GameController>();
         _pool = FindAnyObjectByType<PoolScript>();
         _buttons = _pool.GetComponentsInChildren<SlotButtonUI>();
     }
@@ -26,12 +30,6 @@ public class Agent2 : AgentBase
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     #endregion
 
     #region Public Methods
@@ -40,13 +38,16 @@ public class Agent2 : AgentBase
     #region Private Methods
     private void ClickAll()
     {
+        if (_archdemon)
+            _clicks = (int) _game.ClickRatio;
         Movement();
+        
         foreach (SlotButtonUI slot in _buttons)
         {
             Button button = slot.GetComponent<Button>();
             if (button.enabled)
             {
-                slot.Click(1, true);
+                slot.Click(_clicks, true);
                 _agentAudio.Play();
             }
         }
@@ -58,9 +59,9 @@ public class Agent2 : AgentBase
 
         Sequence agentSequence = DOTween.Sequence();
 
-        agentSequence.Append(transform.DOMove(Vector3.zero, 1));
+        agentSequence.Append(transform.DOMove(Vector3.zero, 0.5f));
 
-        agentSequence.Append(transform.DOScale(1000, 1));
+        agentSequence.Append(transform.DOScale(1000, 0.5f));
 
         agentSequence.Append(transform.DOScale(250, 0.1f));
 

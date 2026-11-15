@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd30ecb7f3205194898c27a4807571ce, type: 3}
+  m_Name: 02-Achivement_KingOfClick
+  m_EditorClassIdentifier: Assembly-CSharp::AchievementData
+  _id: king_of_clicks
+  _title: "\xA1Rey del clic!"
+  _description: Realizar 100000 clics
+  _type: 0
+  _targetValue: 1250
+  _sprite: {fileID: 983664813089426417, guid: 42a7af3ca26b76f4db8293c03ea511ed, type: 3}
