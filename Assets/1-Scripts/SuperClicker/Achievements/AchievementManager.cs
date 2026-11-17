@@ -2,7 +2,6 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public class AchievementManager : MonoBehaviour
 {
@@ -16,7 +15,9 @@ public class AchievementManager : MonoBehaviour
 
     [Header("Player Progress")]
     [SerializeField] private List<AchievementProgress> _progress = new();
-
+    [Header("Achievement Display")]
+    [SerializeField] private AchievementDisplay _display;
+    private List<AchievementData> _obtainedAchievements = new();
     private readonly Dictionary<string, AchievementProgress> _progressById = new();
     private readonly List<AchievementData> _validAchievements = new();
     #endregion
@@ -25,6 +26,18 @@ public class AchievementManager : MonoBehaviour
     private void Awake()
     {
         InitializeAchievements();
+    }
+
+    private void Update()
+    {
+        if (_obtainedAchievements.Count > 0 &&
+            !_display.gameObject.activeSelf)
+        {
+            _display.gameObject.SetActive(true);
+            AchievementData data = _obtainedAchievements[0];
+            _display.ShowAchievement(data);
+            _obtainedAchievements.RemoveAt(0);
+        }
     }
     #endregion
 
@@ -122,7 +135,7 @@ public class AchievementManager : MonoBehaviour
                     $"Achievement unlocked: {achievement.Title}"
                     );
 
-                OnAchievementUnlocked?.Invoke(achievement);
+                _obtainedAchievements.Add(achievement);
             }
         }
     }
