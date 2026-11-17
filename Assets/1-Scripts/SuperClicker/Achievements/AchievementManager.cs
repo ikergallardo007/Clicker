@@ -26,6 +26,7 @@ public class AchievementManager : MonoBehaviour
     private void Awake()
     {
         InitializeAchievements();
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()
