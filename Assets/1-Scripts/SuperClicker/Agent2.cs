@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -55,11 +54,10 @@ public class Agent2 : AgentBase
 
     private void Movement()
     {
-
-
+        Vector3 position = new Vector3(-94f, -518f, 0f);
         Sequence agentSequence = DOTween.Sequence();
 
-        agentSequence.Append(transform.DOMove(Vector3.zero, 0.5f));
+        agentSequence.Append(transform.DOMove(position, 0.5f));
 
         agentSequence.Append(transform.DOScale(1000, 0.5f));
 

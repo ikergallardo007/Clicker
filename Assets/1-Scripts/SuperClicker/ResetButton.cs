@@ -24,13 +24,13 @@ public class ResetButton : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        _resetButton.onClick.AddListener(Reset);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _resetButton.onClick.AddListener(Reset);
+
     }
     #endregion
 

@@ -63,7 +63,9 @@ MonoBehaviour:
   _particles: {fileID: 3579118031734170765}
   _materialParticleIndex: 0
   _pointsPrefab: {fileID: 6119242216037446272, guid: ce809ce078c8feb47ba03392ad620612, type: 3}
-  _clickAudio: {fileID: 1042751957860965802}
+  _audioSource: {fileID: 1042751957860965802}
+  _clickAudio: {fileID: 8300000, guid: 64909a8e58aed2e479a5fba1dc25ea19, type: 3}
+  _endStockAudio: {fileID: 8300000, guid: 0e7d29cb29789594fb5b075aa0e1ae8c, type: 3}
 --- !u!222 &922051267684372514
 CanvasRenderer:
   m_ObjectHideFlags: 0

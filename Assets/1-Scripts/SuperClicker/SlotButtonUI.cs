@@ -39,6 +39,8 @@ public class SlotButtonUI : MonoBehaviour
                     GetComponent<Image>().enabled = false;
                     _clickButton.interactable = false;
                     _clicksText.enabled = false;
+                    _audioSource.PlayOneShot(_endStockAudio);
+
                 }
                 RefreshClicksText();
             }
@@ -61,7 +63,8 @@ public class SlotButtonUI : MonoBehaviour
     [Header("Preafb points")]
     [SerializeField] private PointsElementUI _pointsPrefab;
     [Header("Audio")]
-    [SerializeField] private AudioSource _clickAudio;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _endStockAudio;
 
     private GameController _game;
     private AchievementManager _achievementManager;
@@ -113,7 +116,7 @@ public class SlotButtonUI : MonoBehaviour
     public void Click(int clickCount, bool agent = false)
     {
         _particles.startSpeed = Mathf.Clamp(clickCount / 2, 1, 30);
-        _clickAudio.Play();
+        _audioSource.Play();
         _particles.Emit(Mathf.Clamp(clickCount, 1, 15));
         ClicksLeft -= clickCount;
         RefreshClicksText();

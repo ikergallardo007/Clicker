@@ -18,7 +18,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _clicksText;
 
     [SerializeField] private ParticleSystem _particlesRain;
-    [SerializeField] private AudioSource _rewardAudio;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _rewardClip;
     private string _agentType;
     private AchievementManager _achievementManager;
     #endregion
@@ -60,7 +61,7 @@ public class GameController : MonoBehaviour
     private void GetReward(Reward reward)
     {
         ShowReward(reward);
-        _rewardAudio.Play();
+        _audioSource.PlayOneShot(_rewardClip);
 
         //Apply rewards
         if (reward.RewardType == RewardType.Plus)
