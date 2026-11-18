@@ -1,7 +1,8 @@
-using UnityEngine;
+using DG.Tweening;
 using System;
 using TMPro;
-using DG.Tweening;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
@@ -37,6 +38,14 @@ public class GameController : MonoBehaviour
     private void OnDestroy()
     {
         SlotButtonUI.OnSlotReward -= GetReward;
+    }
+
+    private void Update()
+    {
+        // Cerrar la aplicación cuando se pulse el botón de atrás
+        if (Keyboard.current != null &&
+            Keyboard.current.escapeKey.wasPressedThisFrame)
+            Application.Quit();
     }
 
     #endregion
